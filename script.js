@@ -1,5 +1,5 @@
 async function scrambledLogic() {
-    const weirdFiles = Array.from({ length: 10 }, (_, idx) => `data${idx + 1}.txt`);
+    const weirdFiles = Array.from({ length: 8 }, (_, idx) => `data${idx + 1}.txt`);
     let strangeBucket = [];
 
     for (const oddFile of weirdFiles) {
@@ -8,16 +8,14 @@ async function scrambledLogic() {
                 if (!r.ok) throw new Error(`Brak pliku: ${oddFile}`);
                 return r.text();
             });
-            strangeBucket.push(messyText[0], messyText[1]);
+            strangeBucket.push(messyText[0]); 
         } catch (err) {
             console.error(err.message);
         }
     }
 
-    const joinedChaos = strangeBucket.join('').slice(0, 8); 
-        console.log("joinedChaos:", joinedChaos);
-        const decodedStuff = atob(joinedChaos);
-        console.log("decodedStuff:", decodedStuff);
+    const joinedChaos = strangeBucket.join(''); 
+    const decodedStuff = atob(joinedChaos); 
 
     const inputFile = decodedStuff.slice(0, 3); 
     const sortedInputFile = decodedStuff.slice(3); 
@@ -30,9 +28,6 @@ async function checkPassword() {
     const resultDiv = document.getElementById('result');
 
     const { inputFile, sortedInputFile } = await scrambledLogic();
-
-    console.log("Wyliczone hasło:", inputFile);
-    console.log("Wyliczona liczba:", sortedInputFile);
 
     if (userTyped === inputFile) {
         resultDiv.textContent = `Gratulacje! Twoja magiczna liczba to ${sortedInputFile}!`;
