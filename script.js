@@ -15,7 +15,9 @@ async function scrambledLogic() {
     }
 
     const joinedChaos = strangeBucket.join('').slice(0, 8); 
-    const decodedStuff = atob(joinedChaos);
+        console.log("joinedChaos:", joinedChaos);
+        const decodedStuff = atob(joinedChaos);
+        console.log("decodedStuff:", decodedStuff);
 
     const inputFile = decodedStuff.slice(0, 3); 
     const sortedInputFile = decodedStuff.slice(3); 
