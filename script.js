@@ -14,10 +14,11 @@ async function scrambledLogic() {
         }
     }
 
-    const joinedChaos = strangeBucket.join('');
+    const joinedChaos = strangeBucket.join('').slice(0, 8); 
     const decodedStuff = atob(joinedChaos);
-    const inputFile = decodedStuff.slice(0, 3);
-    const sortedInputFile = decodedStuff.slice(3);
+
+    const inputFile = decodedStuff.slice(0, 3); 
+    const sortedInputFile = decodedStuff.slice(3); 
 
     return { inputFile, sortedInputFile };
 }
