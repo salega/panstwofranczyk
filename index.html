@@ -1,9 +1,35 @@
-<!doctype html>
-<html>
-  <head>
-    <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magiczna liczba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 { text-align: center; margin-bottom: 20px; }
+        .input-container { display: flex; gap: 10px; }
+        input[type="text"] { padding: 10px; font-size: 1rem; border-radius: 5px; border: none; }
+        button { padding: 10px 15px; font-size: 1rem; border: none; border-radius: 5px; background-color: #4caf50; color: #fff; cursor: pointer; }
+        .result { margin-top: 20px; font-size: 1.2rem; font-weight: bold; color: #ffeb3b; }
+    </style>
+</head>
+<body>
+    <h1>Podaj trzyliterowe hasło (małymi, bez polskich znaków), aby poznać magiczną liczbę:</h1>
+    <div class="input-container">
+        <input type="text" id="password" maxlength="3" placeholder="np. abc">
+        <button id="checkBtn">Sprawdź</button>
+    </div>
+    <div class="result" id="result"></div>
+    <script src="script.js"></script>
+</body>
 </html>
